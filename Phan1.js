@@ -2,13 +2,14 @@
 function checkVowel(str) {
   let conut = 0;
   if (typeof str === "string") {
-    for (i = 0; i < str.length; i++) {
+    for (let value of str) {
       if (
-        str.substring(i, i + 1) == "a" ||
-        str.substring(i, i + 1) == "e" ||
-        str.substring(i, i + 1) == "i" ||
-        str.substring(i, i + 1) == "o" ||
-        str.substring(i, i + 1) == "u"
+        ["o", "e", "u", "i", "a"].includes(value)
+        // str.substring(i, i + 1) == "a" ||
+        // str.substring(i, i + 1) == "e" ||
+        // str.substring(i, i + 1) == "i" ||
+        // str.substring(i, i + 1) == "o" ||
+        // str.substring(i, i + 1) == "u"
       ) {
         conut++;
       }
@@ -24,7 +25,7 @@ function checkVowel(str) {
 function contArr(array) {
   let result = {};
   if (!Array.isArray(array)) {
-    console.log("Giá trị nhập vào không phải mảng");
+    return "Giá trị nhập vào không phải mảng";
   } else {
     console.log(`Mảng ${array}`);
     array.forEach((x) => {
@@ -40,7 +41,7 @@ function contArr(array) {
 //hàm câu 3
 function reverseStr(str) {
   if (typeof str !== "string") {
-    console.log("Giá trị nhập vào không phải kiểu dữ liệu chuỗi");
+    return "Giá trị nhập vào không phải kiểu dữ liệu chuỗi";
   }
   let s = str.split("").reverse().join("");
   console.log(`Chuỗi trước khi nghịch đảo là : ${str}`);
@@ -51,29 +52,34 @@ function reverseStr(str) {
 function plusStr(str) {
   let s = str.split("_");
   if (typeof str !== "string") {
-    console.log("Giá trị nhập vào không phải kiểu dữ liệu chuỗi");
+    return "Giá trị nhập vào không phải kiểu dữ liệu chuỗi";
   } else {
     console.log(`Chuỗi nhập vào có giá trị là: ${str}`);
     for (i = 0; i < s.length; i++) {
       s[i] =
         s[i].charAt(0).toLocaleUpperCase() + s[i].substring(1, s[i].length);
     }
-    console.log(`Chuỗi sau khi chuyển đổi là: ${s.join(" ")}`);
+    return `Chuỗi sau khi chuyển đổi là: ${s.join(" ")}`;
   }
 }
 
 //hàm câu 5
 function swapNumber(a, b) {
   if (typeof a !== "number" || typeof b !== "number") {
-    console.log("Giá trị nhập vào phải thuộc kiểu dữ liệu number");
+    return "Giá trị nhập vào phải thuộc kiểu dữ liệu number";
   } else {
     console.log(`Hai số trước khi đổi chỗ: a = ${a} và b = ${b}`);
     a = a + b;
     b = a - b;
     a = a - b;
-    console.log(`Hai số sau khi đổi chổ là: a = ${a} và b = ${b}`);
+    return `Hai số sau khi đổi chổ là: a = ${a} và b = ${b}`;
   }
 }
+
+//Sửa function 2
+// function countItemArr(arr) {
+//   let obj = {};
+// }
 
 //câu 1
 var a = "aaaaaaaaa";

@@ -2,10 +2,10 @@
 function sum(array) {
   let sum = 0;
   if (Array.isArray(array) === false) {
-    console.log("Dữ liệu nhập vào phải là mảng.");
+    return "Dữ liệu nhập vào phải là mảng.";
   } else {
-    for (i = 0; i < array.length; i++) {
-      sum += array[i];
+    for (let value of array) {
+      sum += value;
     }
     console.log(`Tổng các giá trị trong mảng là: ${sum}`);
   }
@@ -23,7 +23,7 @@ function checkNumber(array, x) {
       }
     }
   } else {
-    console.log("Dữ liệu nhập vào phải là mảng.");
+    return "Dữ liệu nhập vào phải là mảng.";
   }
 }
 
@@ -34,7 +34,7 @@ function takeArr(array, x, y) {
     if (x >= 0) {
       arr = array.slice(x, y);
       if (y == "undefined") {
-        arr = array.slice(x, array.length - 1);
+        arr = array.slice(x, array.length);
       }
       console.log(
         `Vị trí startPoint là ${x} và endPoint là ${y} ta được mảng như sau ${arr}`
@@ -67,13 +67,15 @@ function removeArr(array, x) {
 }
 //bt1
 var a = [2, 3, 6, 8, 9, 23, 16];
+var b = [2, 3, 6, 8, 9, 23, 16];
+takeArr(a, 0);
 sum(a);
 console.log(a.pop(2));
 //bt2
 checkNumber(a, 6);
 
 //bt3
-takeArr(a, -2, 10);
+takeArr(b, 0);
 
 //bt4
 removeArr(a, 6);
